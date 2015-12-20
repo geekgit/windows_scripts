@@ -8,8 +8,11 @@ if (!$IsAdmin)
 Write-Host 'Enable Windows Key...'
 Try
 {
-	Get-ChildItem -Path 'HKLM:\System\CurrentControlSet\Control\Keyboard Layout\Scancode Map'
-	Remove-Item -Path 'HKLM:\System\CurrentControlSet\Control\Keyboard Layout\Scancode Map'
+	$PathToReg='HKLM:\System\CurrentControlSet\Control\Keyboard Layout'
+	Write-Host $PathToReg
+	$Var=(Get-ItemProperty $PathToReg).'Scancode Map'
+	Write-Host $Var
+	Get-Item $PathToReg | Remove-ItemProperty -name 'Scancode Map'
 }
 Catch
 {
