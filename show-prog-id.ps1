@@ -5,6 +5,13 @@ function id-work
 	$ID=$IP.'(default)'
 	Write-Host "$Ext ProgId=$ID"
 }
+function explorer-work
+{
+	$Ext=$args[0]
+	$RPath="Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\$Ext\UserChoice"
+	$ID=(Get-ItemProperty $RPath).'ProgId'
+	Write-Host "$Ext UserChoice ProgID=$ID"
+}
 $IsAdmin=([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator");
 Write-Host 'Admin: ' $IsAdmin
 if (!$IsAdmin)
@@ -17,6 +24,8 @@ Try
 {
 	id-work .mkv
 	id-work .mp4
+	explorer-work .mkv
+	explorer-work .mp4
 }
 Catch
 {
