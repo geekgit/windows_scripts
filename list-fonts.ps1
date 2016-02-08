@@ -5,6 +5,7 @@ function get-fonts
     $FontFamilies=$InstalledFontCollection.Families
     $FontArrayList=New-Object System.Collections.ArrayList
     $FontFamilies.'Name' | %{$FontArrayList.Add($_)} | Out-Null
+	$FontArrayList.Sort()
     return $FontArrayList
 }
 function list-fonts
