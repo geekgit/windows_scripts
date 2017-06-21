@@ -1,9 +1,13 @@
 # Author: geekgit
 # Date: 21.06.2017 0:17 UTC
+# Last update: 21.06.2017 0:36 UTC
 Try
 {
 $whiteList=New-Object System.Collections.ArrayList($null);
 $whiteList.Add("content");
+$whiteList.Add("config");
+$whiteList.Add("intermediate");
+
 $dirVar=(Get-ChildItem | ?{ $_.PSIsContainer}).Name;
 Write-Host "Dir in project folder: ";
 
