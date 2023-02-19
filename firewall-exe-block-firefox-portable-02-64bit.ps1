@@ -8,10 +8,10 @@ if (!$IsAdmin)
 Write-Host 'Block online access...'
 Try
 {
-    $directory="C:\FirefoxPortable"
-    $exename="Firefox.exe"
+    $directory="C:\FirefoxPortable\App\Firefox64"
+    $exename="firefox.exe"
     $exepath=$directory+'\'+$exename
-    $appname="Firefox"
+    $appname="Firefox Portable (64 bit)"
 	
     Write-Host "App: $appname"
     Write-Host "Exe Path: $exepath"
