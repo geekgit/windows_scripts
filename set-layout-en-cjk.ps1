@@ -1,7 +1,9 @@
 Try
 {
-$Layout=New-WinUserLanguageList "ru"
-$Layout.Add("en-US")
+$Layout=New-WinUserLanguageList "en-US"
+$Layout.Add("ja")
+$Layout.Add("zh-Hans-CN")
+$Layout.Add("ko")
 Set-WinUserLanguageList $Layout -Force
 }
 Catch

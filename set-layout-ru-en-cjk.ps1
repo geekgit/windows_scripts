@@ -1,6 +1,6 @@
 Try
 {
-$Layout=New-WinUserLanguageList ru
+$Layout=New-WinUserLanguageList "ru"
 $Layout.Add("en-US")
 $Layout.Add("ja")
 $Layout.Add("zh-Hans-CN")
