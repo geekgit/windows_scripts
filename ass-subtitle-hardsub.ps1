@@ -39,7 +39,7 @@ Get-ChildItem -LiteralPath $root -File | Where-Object Extension -eq ".mkv" | For
     ffmpeg -y `
         -i $mkv.FullName `
         -vf "ass='$assPath':fontsdir='$fontsDir'" `
-        -c:v libx264 -crf 18 -preset medium `
+        -c:v libx264 -pix_fmt yuv420p -profile:v high -level 4.1 -crf 18 -preset medium `
         -c:a aac -b:a 320k `
         -movflags +faststart `
         $out
